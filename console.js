@@ -32,6 +32,12 @@
         "wheat", "white", "whitesmoke",
         "yellow", "yellowgreen"];
 
+    options = {
+        "background": 'white',
+        "fontFamily": 'monospace',
+        "fontWeight": 'bold'
+    };
+
     function getFormatStr(l) {
         var formatStr = '%c';
 
@@ -51,7 +57,7 @@
         var l = l || [].slice.apply(arguments, 1),
                 formatStr = getFormatStr(l);
 
-        l.unshift('color: ' + color + ';font-weight: bold; font-family: monospace;');
+        l.unshift('color: ' + color + ';background-color:' + options.background + ';font-weight:' + options.fontWeight + ';font-family:' + options.fontFamily + ';');
         l.unshift(formatStr);
 
         oConsole.log.apply(oConsole, l);
@@ -59,12 +65,12 @@
 
     console.random = function () {
         var r = namedColors[Math.floor(Math.random() * namedColors.length)];
-        
+
         console.color(r, [].slice.apply(arguments));
     };
 
-    namedColors.forEach(function(color) {
-        console[color] = function() {
+    namedColors.forEach(function (color) {
+        console[color] = function () {
             console.color(color, [].slice.apply(arguments));
         };
     });
