@@ -32,7 +32,7 @@
         "wheat", "white", "whitesmoke",
         "yellow", "yellowgreen"];
 
-    options = {
+    var options = {
         "background": 'white',
         "fontFamily": 'monospace',
         "fontWeight": 'bold'
